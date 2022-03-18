@@ -13,7 +13,7 @@ def index():
         name = request.form.get('name')
         email = request.form.get('email')
         Id = request.form.get('Id')
-        Question = request.form.get('Questions')
+        Question = request.form.get('Question')
         user = db.User()
         user.name = name
         user.email = email
@@ -22,6 +22,21 @@ def index():
         user.save()
         flash("Created Successfully")
     return render_template('create.html')
+@app.route('/Read',methods=['POST',"GET"])
+def read():
+    users = db.User.objects()
+    return render_template('read.html',users=users)
+@app.route('/View',methods=['POST',"GET"])
+def view():
+    users = db.User.objects()
+    return render_template('view.html',users=users)
+
+@app.route('/list',methods=['POST',"GET"])
+def list():
+    users = db.User.objects()
+    return render_template('list.html',users=users)
+
+
 
 if __name__ == "__main__":
     app.run(debug=True) 

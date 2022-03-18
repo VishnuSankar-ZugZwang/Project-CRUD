@@ -9,4 +9,4 @@ class User(DynamicDocument):
     name = StringField()
     email = EmailField()
     Id = StringField()
-    Question = StringField
+    Question = StringField()
