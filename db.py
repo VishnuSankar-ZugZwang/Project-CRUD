@@ -5,3 +5,4 @@ from mongoengine.fields import *
 from mongoengine.document import *
 
 connect("DB1")
+class User(DynamicDocument):

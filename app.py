@@ -1,7 +1,6 @@
 from flask import Flask,render_template,request
 from flask.helpers import flash
 import db, os, re
-app = Flask(__name__)
 app.secret_key = os.urandom(16)
 app.config["MONGO_DBNAME"] = 'DB1'
 
