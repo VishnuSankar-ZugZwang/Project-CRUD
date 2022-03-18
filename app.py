@@ -35,6 +35,16 @@ def view():
 def list():
     users = db.User.objects()
     return render_template('list.html',users=users)
+@app.route('/Delete',methods=['POST',"GET"])
+def delete():
+    users1 = db.User.objects()
+    if request.method  == "POST":
+        name = request.form.get('name')
+        user = db.User.objects(name=name)
+        user.delete()
+        users1 = db.User.objects()
+    return render_template('delete.html',res=users1)
+
 
 
 
