@@ -43,6 +43,7 @@ def delete():
         user = db.User.objects(name=name)
         user.delete()
         users1 = db.User.objects()
+        flash("Deleted Successfully")
     return render_template('delete.html',res=users1)
 @app.route('/Update',methods=['POST',"GET"])
 def update():
