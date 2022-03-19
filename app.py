@@ -44,6 +44,18 @@ def delete():
         user.delete()
         users1 = db.User.objects()
     return render_template('delete.html',res=users1)
+@app.route('/Update',methods=['POST',"GET"])
+def update():
+    users = db.User.objects()
+    if request.method == "POST":
+        name = request.form.get('name')
+        email = request.form.get('email')
+        Id = request.form.get('Id')
+        user = db.User.objects(name=name,email=email,Id=Id)
+        user.update(name=name,email=email,Id=Id)
+        user1 = db.User.objects()
+        flash("Updated Successfully")
+    return render_template("update.html",res=users)    
 
 
 
