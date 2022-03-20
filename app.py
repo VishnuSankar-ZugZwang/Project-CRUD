@@ -10,13 +10,9 @@ app.config["MONGO_DBNAME"] = 'DB1'
 @app.route('/',methods=["POST","GET"])
 def index():
     if request.method == "POST":
-        name = request.form.get('name')
-        email = request.form.get('email')
         Id = request.form.get('Id')
         Question = request.form.get('Question')
         user = db.User()
-        user.name = name
-        user.email = email
         user.Id = Id
         user.Question = Question
         user.save()
@@ -39,7 +35,6 @@ def list():
 def delete():
     users1 = db.User.objects()
     if request.method  == "POST":
-        name = request.form.get('name')
         user = db.User.objects(name=name)
         user.delete()
         users1 = db.User.objects()
@@ -49,11 +44,9 @@ def delete():
 def update():
     users = db.User.objects()
     if request.method == "POST":
-        name = request.form.get('name')
-        email = request.form.get('email')
         Id = request.form.get('Id')
-        user = db.User.objects(name=name,email=email,Id=Id)
-        user.update(name=name,email=email,Id=Id)
+        user = db.User.objects(Id=Id)
+        user.update(Id=Id)
         user1 = db.User.objects()
         flash("Updated Successfully")
     return render_template("update.html",res=users)    
