@@ -35,7 +35,9 @@ def list():
 def delete():
     users1 = db.User.objects()
     if request.method  == "POST":
-        user = db.User.objects(name=name)
+        Id = request.form.get('Id')
+
+        user = db.User.objects(Id=Id)
         user.delete()
         users1 = db.User.objects()
         flash("Deleted Successfully")
