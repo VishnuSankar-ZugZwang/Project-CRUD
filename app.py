@@ -22,6 +22,44 @@ def index():
 def read():
     users = db.User.objects()
     return render_template('read.html',users=users)
+
+@app.route('/Read1',methods=['POST',"GET"])
+def read1():
+    users = db.User.objects()
+    return render_template('read1.html',users=users)
+@app.route('/Read2',methods=['POST',"GET"])
+def read2():
+    users = db.User.objects()
+    return render_template('read2.html',users=users)
+@app.route('/Read3',methods=['POST',"GET"])
+def read3():
+    users = db.User.objects()
+    return render_template('read3.html',users=users)
+@app.route('/Read4',methods=['POST',"GET"])
+def read4():
+    users = db.User.objects()
+    return render_template('read4.html',users=users)
+@app.route('/Read5',methods=['POST',"GET"])
+def read5():
+    users = db.User.objects()
+    return render_template('read5.html',users=users)
+@app.route('/Read6',methods=['POST',"GET"])
+def read6():
+    users = db.User.objects()
+    return render_template('read6.html',users=users)
+@app.route('/Read7',methods=['POST',"GET"])
+def read7():
+    users = db.User.objects()
+    return render_template('read7.html',users=users)
+@app.route('/Read8',methods=['POST',"GET"])
+def read8():
+    users = db.User.objects()
+    return render_template('read.html',users=users)
+@app.route('/Read9',methods=['POST',"GET"])
+def read9():
+    users = db.User.objects()
+    return render_template('read9.html',users=users)
+
 @app.route('/View',methods=['POST',"GET"])
 def view():
     users = db.User.objects()
